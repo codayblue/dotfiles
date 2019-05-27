@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ ! -d "$HOME/.zsh.d" ]; then
+    mkdir $HOME/.zsh.d
+fi
+
+if [ ! -f "$HOME/.zsh.d/antigen.zsh" ]; then
+    curl -L git.io/antigen > $HOME/.zsh.d/antigen.zsh
+fi
+
+if [ $SHELL != "/usr/bin/zsh" ]; then
+    chsh -s /usr/bin/zsh $USER
+    /usr/bin/zsh
+fi
