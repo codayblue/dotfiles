@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dnf install --assumeyes gnome-shell-extension-dash-to-dock gnome-shell-extension-topicons-plus git zsh powerline-fonts curl
+sudo apt install -y zsh fonts-powerline curl
 
 if [ ! -d "$HOME/.zsh.d" ]; then
     mkdir $HOME/.zsh.d
