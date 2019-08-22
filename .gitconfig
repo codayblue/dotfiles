@@ -4,4 +4,4 @@
 	name = codayblue
 	email = codayblue@gmail.com
 [core]
-	excludesfile = .global_gitignore
+	excludesfile = ~/.global_gitignore
