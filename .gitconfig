@@ -4,4 +4,4 @@
 [core]
 	excludesfile = ~/.global_gitignore
 [alias]
-	cleanbranches = !git branch -d $(git branch --merged | grep -v master) || echo \"Nothing to clean\"
+	cleanbranches = !git branch -d $(git branch --merged | grep -v master) &> /dev/null || echo \"Nothing to clean\"
