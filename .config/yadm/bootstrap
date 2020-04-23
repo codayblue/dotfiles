@@ -4,13 +4,13 @@ if [ ! -d $HOME/.zsh.d ]; then
 	mkdir $HOME/.zsh.d
 fi
 
-if [ ! -f $HOME/.zsh.d/antigen.zsh ]; then
-	curl -L git.io/antigen > $HOME/.zsh.d/antigen.zsh
-fi
-
 if [[ -x `which apt` ]]; then
 	# Assume this is ubuntu.... Probably will make better later.
-	sudo apt install zsh fonts-hack git tilix dconf-cli
+	sudo apt install zsh fonts-hack git tilix dconf-cli htop curl
+fi
+
+if [ ! -f $HOME/.zsh.d/antigen.zsh ]; then
+	curl -L git.io/antigen > $HOME/.zsh.d/antigen.zsh
 fi
 
 if [[ -x `which snap` ]]; then
