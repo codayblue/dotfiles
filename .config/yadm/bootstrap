@@ -6,7 +6,7 @@ fi
 
 if [[ -x `which apt` ]]; then
 	# Assume this is ubuntu.... Probably will make better later.
-	sudo apt install zsh fonts-hack git tilix dconf-cli htop curl
+	sudo apt install -y zsh fonts-hack git tilix dconf-cli htop curl
 fi
 
 if [ ! -f $HOME/.zsh.d/antigen.zsh ]; then
@@ -15,15 +15,16 @@ fi
 
 if [[ -x `which snap` ]]; then
 	sudo snap install spotify
-	sudo snap install discord 
+	sudo snap install discord
 	sudo snap install --classic code
+	sudo snap install --classic slack
 fi
 
 if [[ -x `which chsh` ]]; then
-	sudo chsh -s `which zsh`
+	sudo chsh -s `which zsh` $USER
 fi
 
 if [[ -x `which dconf` ]]; then
-	dconf load /com/gexperts/Tilix/ < tilix.dconf
-	dconf load /org/gnome/desktop/wm/keybindings/ < .config/key-bindings.dconf
+	dconf load /com/gexperts/Tilix/ < $HOME/.config/tilix.dconf
+	dconf load /org/gnome/desktop/wm/keybindings/ < $HOME/.config/key-bindings.dconf
 fi
