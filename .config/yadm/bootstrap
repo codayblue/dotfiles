@@ -6,7 +6,7 @@ fi
 
 if [[ -x `which apt` ]]; then
 	# Assume this is ubuntu.... Probably will make better later.
-	sudo apt install -y zsh fonts-hack git tilix dconf-cli htop curl
+	sudo apt install -y zsh fonts-hack git tilix dconf-cli htop curl httpie jq wget
 fi
 
 if [ ! -f $HOME/.zsh.d/antigen.zsh ]; then
