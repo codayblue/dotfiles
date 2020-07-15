@@ -14,7 +14,10 @@ antigen bundle docker-compose
 antigen bundle composer
 
 # Syntax highlighting bundle.
-#antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Auto suggestion
+antigen bundle zsh-users/zsh-autosuggestions
 
 # Load the theme.
 antigen theme agnoster
