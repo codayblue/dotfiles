@@ -1,4 +1,10 @@
-export PATH=$PATH:$HOME/.config/composer/vendor/bin
+if [ -d $HOME/.config/composer/vendor/bin ]; then
+	export PATH=$PATH:$HOME/.config/composer/vendor/bin
+fi
+
+if [ -d $HOME/bin ]; then
+	export PATH=$PATH:$HOME/bin
+fi
 
 source $HOME/.zsh.d/antigen.zsh
 
@@ -17,7 +23,7 @@ antigen bundle composer
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Auto suggestion
-antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle zsh-users/zsh-autosuggestions
 
 # Load the theme.
 antigen theme agnoster
@@ -29,3 +35,5 @@ antigen apply
 if [ -f $HOME/.zshrc_local ]; then
 	source $HOME/.zshrc_local
 fi
+
+[[ -s "/Users/cody.moss/.gvm/scripts/gvm" ]] && source "/Users/cody.moss/.gvm/scripts/gvm"
