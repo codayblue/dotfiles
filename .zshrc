@@ -14,7 +14,7 @@ if [[ -d /usr/local/go/bin ]]; then
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/codayblue/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -75,6 +75,10 @@ ZSH_THEME="agnoster"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+if [[ ! -d $ZSH/custom/plugins/zsh-syntax-highlighting ]]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/custom/plugins/zsh-syntax-highlighting
+fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -86,6 +90,7 @@ plugins=(
     docker
     docker-compose
     composer
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
