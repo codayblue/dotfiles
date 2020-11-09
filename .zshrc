@@ -91,6 +91,7 @@ plugins=(
     docker-compose
     composer
     zsh-syntax-highlighting
+    kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
