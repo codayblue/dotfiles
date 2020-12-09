@@ -5,8 +5,8 @@ if [[ -d $HOME/.config/composer/vendor/bin ]]; then
 	export PATH=$PATH:$HOME/.config/composer/vendor/bin
 fi
 
-if [[ -d $HOME/bin ]]; then
-	export PATH=$PATH:$HOME/bin
+if [[ -d $HOME/.local/bin ]]; then
+	export PATH=$PATH:$HOME/.local/bin
 fi
 
 if [[ -d /usr/local/go/bin ]]; then
