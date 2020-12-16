@@ -1,8 +1,27 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if [[ -x `which apt-get` ]]; then
+if [[ -f '/etc/os-release' ]]; then
+	source /etc/os-release
+else
+	ID="N/A"
+fi
+
+if [[ "$ID" != "N/A" ]]; then
+	mkdir -p $HOME/.local/share/fonts
+	curl -L https://raw.githubusercontent.com/source-foundry/hack-linux-installer/master/hack-linux-installer.sh | bash -s latest
+fi
+
+if [[ "$ID" == 'ubuntu' ]]; then
 	# Assume this is ubuntu.... Probably will make better later.
-	sudo apt-get install -y zsh fonts-hack git tilix dconf-cli htop curl httpie jq wget
+	sudo apt-get install -y zsh git tilix dconf-cli htop curl httpie jq wget
+fi
+
+if [[ "$ID" == 'fedora' ]]; then
+	sudo dnf -y install zsh git tilix htop curl httpie jq wget util-linux-user dnf-plugins-core syncthing syncthing-cli syncthing-tools powertop
+	sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+	sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+	sudo dnf install brave-browser
+	systemctl enable syncthing --user --now
 fi
 
 if [[ -x `which brew` ]]; then
