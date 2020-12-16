@@ -12,15 +12,16 @@ if [[ "$ID" != "N/A" ]]; then
 fi
 
 if [[ "$ID" == 'ubuntu' ]]; then
-	# Assume this is ubuntu.... Probably will make better later.
 	sudo apt-get install -y zsh git tilix dconf-cli htop curl httpie jq wget
 fi
 
 if [[ "$ID" == 'fedora' ]]; then
-	sudo dnf -y install zsh git tilix htop curl httpie jq wget util-linux-user dnf-plugins-core syncthing syncthing-cli syncthing-tools powertop
+	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 	sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 	sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-	sudo dnf install brave-browser
+	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+	sudo dnf check-update
+	sudo dnf -y install zsh git tilix htop curl httpie jq wget util-linux-user gnome-tweaks gnome-shell-extension-appindicator gnome-shell-extension-user-theme dnf-plugins-core code brave-browser syncthing syncthing-cli syncthing-tools powertop
 	systemctl enable syncthing --user --now
 fi
 
