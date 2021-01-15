@@ -1,16 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-if [[ -d $HOME/.config/composer/vendor/bin ]]; then
-	export PATH=$PATH:$HOME/.config/composer/vendor/bin
-fi
-
 if [[ -d $HOME/.local/bin ]]; then
 	export PATH=$PATH:$HOME/.local/bin
-fi
-
-if [[ -d /usr/local/go/bin ]]; then
-	export PATH=$PATH:/usr/local/go/bin
 fi
 
 # Path to your oh-my-zsh installation.
@@ -20,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,11 +65,7 @@ ZSH_THEME="agnoster"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-if [[ ! -d $ZSH/custom/plugins/zsh-syntax-highlighting ]]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/custom/plugins/zsh-syntax-highlighting
-fi
+ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
