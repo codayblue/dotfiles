@@ -1,6 +1,6 @@
 # monokai.yml
 # Styles...
-foreground: &foreground "#333333"
+foreground: &foreground "#ffffff"
 background: &background "default"
 backgroundOpaque: &backgroundOpaque "#333333"
 magenta: &magenta "#f72972"
