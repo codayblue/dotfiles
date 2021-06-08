@@ -7,3 +7,5 @@
 	cleanbranches = !git branch -d $(git branch --merged | grep -v master) &> /dev/null || echo \"Nothing to clean\"
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main

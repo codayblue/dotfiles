@@ -113,3 +113,5 @@ source $ZSH/oh-my-zsh.sh
 if [ -f $HOME/.zshrc_local ]; then
 	source $HOME/.zshrc_local
 fi
+
+alias yolo='git commit -am "$(curl -s http://whatthecommit.com/index.txt)"'
