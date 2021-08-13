@@ -1,6 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+if [[ -d $HOME/.rbenv/bin ]]; then
+	export PATH=$HOME/.rbenv/bin:$PATH
+fi
+
+if [[ -d $HOME/.rbenv/shims ]]; then
+	export PATH=$HOME/.rbenv/shims:$PATH
+fi
+
 if [[ -d $HOME/.local/bin ]]; then
 	export PATH=$PATH:$HOME/.local/bin
 fi
