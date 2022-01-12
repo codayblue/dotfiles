@@ -1,11 +1,32 @@
 #!/bin/bash
 
+command_missing=0
+
+if ! command -v helm > /dev/null; then
+  echo "Helm needs to be installed"
+  command_missing=1
+fi
+
+if ! command -v kind > /dev/null; then
+  echo "Kind needs to be installed"
+  command_missing=1
+fi
+
+if [[ "$command_missing" == "1" ]]; then
+  exit $command_missing
+fi
+
+if ! helm repo list | grep projectcalico > /dev/null; then
+  helm repo add projectcalico https://docs.projectcalico.org/charts
+fi
+
 if [[ $1 == "create" ]]; then
   kind create cluster --config=$HOME/.kube/kind.yaml;
-  helm install calico projectcalico/tigera-operator --version v3.21.2 --kube-context=kind-local
+  helm upgrade calico projectcalico/tigera-operator --install --version=v3.21.2 --kube-context=kind-local
   kubectl apply --context=kind-local -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml;
 fi
 
 if [[ $1 == "destroy" ]]; then
   kind delete cluster --name=local;
 fi
+
