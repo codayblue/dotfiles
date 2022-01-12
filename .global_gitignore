@@ -51,6 +51,7 @@ desktop.ini
 # IDE files #
 #############
 .vscode
+.devcontainer
 .idea
 .iml
 *.sublime-workspace
