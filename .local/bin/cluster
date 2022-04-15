@@ -16,13 +16,14 @@ if [[ "$command_missing" == "1" ]]; then
   exit $command_missing
 fi
 
-if ! helm repo list | grep projectcalico > /dev/null; then
-  helm repo add projectcalico https://docs.projectcalico.org/charts
+if ! helm repo list | grep metrics-server > /dev/null; then
+  helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+  helm repo update
 fi
 
 if [[ "$1" == "create" ]]; then
   kind create cluster --config=$HOME/.kube/kind.yaml;
-  helm upgrade calico projectcalico/tigera-operator --install --version=v3.21.2 --kube-context=kind-local
+  helm upgrade metrics-server metrics-server/metrics-server --install --kube-context=kind-local --namespace=kube-system --set args={--kubelet-insecure-tls}
   kubectl apply --context=kind-local -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml;
 fi
 
