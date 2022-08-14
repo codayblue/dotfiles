@@ -122,3 +122,7 @@ if [ -f $HOME/.zshrc_local ]; then
 fi
 
 alias yolo='git commit -am "$(curl -s http://whatthecommit.com/index.txt)"'
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/codayblue/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

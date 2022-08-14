@@ -47,6 +47,7 @@ desktop.ini
 *.swo
 *~
 *#
+*.local
 
 # IDE files #
 #############
